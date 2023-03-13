@@ -1,3 +1,33 @@
-<div *ngFor="let d of data">
-    <p>Date: {{d?.date}}, Time: {{d?.time}}, Temperature: {{d?.temperature}}, Humidity: {{d?.humidity}}</p>
-</div>
+<div class="container-sm">
+    <div class="row text-center">
+        <h1 class="display-1">Raspberry DHT22 Monitor</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <ngb-accordion [closeOthers]="true" [activeIds]="activePanel">
+          <ngb-panel *ngFor="let group of data; let i = index" [id]="'panel-' + i" [title]="group.date">
+            <ng-template ngbPanelContent>
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Time (UTC +01.00)</th>
+                    <th>Temperature (°C)</th>
+                    <th>Humidity (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of getPagedItems(i)">
+                        <td>{{ item?.time }}</td>
+                        <td>{{ item?.temperature | number:'2.1' }}</td>
+                        <td>{{ item?.humidity | number:'2.1' }}</td>
+                    </tr>
+                </tbody>
+              </table>
+              <ngb-pagination [collectionSize]="data[i]?.items.length" [(page)]="currentPage" [pageSize]="pageSize"></ngb-pagination>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+    </div>
+  </div>
+  

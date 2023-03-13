@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { DriveService } from 'src/app/services/drive.service';
 
 @Component({
@@ -9,6 +10,9 @@ import { DriveService } from 'src/app/services/drive.service';
 export class MonitorDataComponent implements OnInit {
 
   data: any[] = [];
+  activePanel!: string;
+  pageSize: number = 12;
+  currentPage: number = 1;
 
   constructor(private driveService: DriveService) { }
 
@@ -17,10 +21,38 @@ export class MonitorDataComponent implements OnInit {
   }
 
   getDriveData() {
+    const datePipe = new DatePipe('en-US');
     this.driveService.getAllData().subscribe(
       data => {
-        this.data = data?.data.reverse();
+        this.data = data?.data;
+        this.data = this.data.reduce((acc: { date: any; items: any[]; }[], curr: { date: any; }) => {
+          const date = curr.date;
+          const index = acc.findIndex(group => group.date === date);
+          if (index !== -1) {
+            acc[index].items.push(curr);
+          } else {
+            acc.push({ date: date, items: [curr] });
+          }
+          return acc;
+        }, []);
+
+        this.data = this.data
+          .map(group => {
+            return { date: new Date(group.date), items: group.items };
+          })
+          .sort((a, b) => b.date.getTime() - a.date.getTime())
+          .map(group => {
+            return { date: datePipe.transform(group.date, 'dd/MM/yyyy'), items: group.items };
+          });
+        
+        console.log(this.data);
+        this.activePanel = 'panel-0';
       });
   }
 
+  getPagedItems(i: number) {
+    const start = (this.currentPage - 1) * this.pageSize;
+    const end = start + this.pageSize;
+    return this.data[i].items.slice(start, end);
+  }
 }

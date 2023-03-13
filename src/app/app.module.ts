@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MonitorDataComponent } from './pages/monitor-data/monitor-data.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { MonitorDataComponent } from './pages/monitor-data/monitor-data.componen
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbAccordionModule,
+    NgbPaginationModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
