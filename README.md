@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/367f94d3-190d-4571-a65f-784bba418ab3/deploy-status)](https://app.netlify.com/sites/tranquil-bubblegum-13a3ab/deploys)
+
 # Raspberry-DHT22-Monitor
 ### Description
 This Angular project is used to display the data that is recorded by the DHT22 sensor.<br>
