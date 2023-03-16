@@ -10,7 +10,7 @@ import { DriveService } from 'src/app/services/drive.service';
 export class MonitorDataComponent implements OnInit {
 
   data: any[] = [];
-  activePanel!: string;
+  activePanel: string = 'panel-0';
   pageSize: number = 12;
   currentPage: number = 1;
 
@@ -44,9 +44,6 @@ export class MonitorDataComponent implements OnInit {
           .map(group => {
             return { date: datePipe.transform(group.date, 'dd/MM/yyyy'), items: group.items };
           });
-        
-        console.log(this.data);
-        this.activePanel = 'panel-0';
       });
   }
 

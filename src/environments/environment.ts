@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url: 'https://script.google.com/macros/s/AKfycbxKr_YuE1XkcLdwQ9FbdIDHIXV-mbIEFq4HY1nV0DWypm7ncolzphj1Wn-LnjHqHCkF/exec'
 };
 
 /*

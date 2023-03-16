@@ -8,11 +8,13 @@ import { MonitorDataComponent } from './pages/monitor-data/monitor-data.componen
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { DataChartComponent } from './pages/data-chart/data-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MonitorDataComponent
+    MonitorDataComponent,
+    DataChartComponent
   ],
   imports: [
     BrowserModule,

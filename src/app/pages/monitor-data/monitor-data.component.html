@@ -7,6 +7,7 @@
         <ngb-accordion [closeOthers]="true" [activeIds]="activePanel">
           <ngb-panel *ngFor="let group of data; let i = index" [id]="'panel-' + i" [title]="group.date">
             <ng-template ngbPanelContent>
+              <app-data-chart [group]="group"></app-data-chart>
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
