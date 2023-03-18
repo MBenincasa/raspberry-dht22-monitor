@@ -11,7 +11,7 @@ export class MonitorDataComponent implements OnInit {
 
   data: any[] = [];
   activePanel: string = 'panel-0';
-  pageSize: number = 12;
+  pageSize: number = 8;
   currentPage: number = 1;
 
   constructor(private driveService: DriveService) { }

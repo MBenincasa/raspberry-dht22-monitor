@@ -8,9 +8,9 @@ describe('MonitorDataComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MonitorDataComponent ]
+      declarations: [MonitorDataComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MonitorDataComponent);
     component = fixture.componentInstance;

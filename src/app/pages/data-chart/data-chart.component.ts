@@ -63,6 +63,16 @@ export class DataChartComponent implements OnInit {
             max: 35,
             position: 'right'
           }
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: "Trend of the day " + this.group.date,
+            padding: {
+              top: 5,
+              bottom: 15
+            }
+          }
         }
       }
     });
