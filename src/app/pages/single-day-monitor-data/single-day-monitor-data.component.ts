@@ -13,6 +13,7 @@ export class SingleDayMonitorDataComponent implements OnInit {
 
   date: any;
   data: any[] = [];
+  dataEmpty: boolean = false;
 
   pageSize: number = 8;
   currentPage: number = 1;
@@ -26,6 +27,7 @@ export class SingleDayMonitorDataComponent implements OnInit {
   }
 
   getDriveData(date?: string) {
+    this.dataEmpty = false;
     const datePipe = new DatePipe('en-US');
     if (!date) {
       this.date = datePipe.transform(new Date(), 'yyyy-MM-dd');
@@ -33,7 +35,11 @@ export class SingleDayMonitorDataComponent implements OnInit {
 
     this.driveService.getAllData(this.date).subscribe(
       data => {
+        console.log(data)
         this.data = data?.data;
+        if (this.data.length === 0) {
+          this.dataEmpty = true;
+        }
         this.data = this.data.reduce((acc: { date: any; items: any[]; }[], curr: { date: any; }) => {
           const date = curr.date;
           const index = acc.findIndex(group => group.date === date);
@@ -59,7 +65,6 @@ export class SingleDayMonitorDataComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("submit")
     this.data = [];
     let year = this.selectedDate.year;
     let month = this.selectedDate.month;

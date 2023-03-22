@@ -3,8 +3,8 @@
         <h1 class="display-1">Raspberry DHT22 Monitor</h1>
         <h3 class="display-3">Single date</h3>
     </div>
-    <div class="row">
-        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="onClick()">All dates</button>
+    <div class="d-grid gap-2 pb-3">
+        <button type="button" class="btn btn-primary btn-block" (click)="onClick()">All dates</button>
     </div>
     <div class="row pt-3 justify-content-end">
         <form>
@@ -50,9 +50,14 @@
             [ellipses]="false">
         </ngb-pagination>
     </div>
-    <div *ngIf="data.length == 0">
+    <div *ngIf="data.length == 0 && dataEmpty == false">
         <div class="d-flex justify-content-center pt-5">
             <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status"></div>
+        </div>
+    </div>
+    <div *ngIf="dataEmpty == true">
+        <div class="row">
+            <h4 class="display-4 text-center">No Data</h4>
         </div>
     </div>
 </div>
