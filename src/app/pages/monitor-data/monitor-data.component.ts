@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { DriveService } from 'src/app/services/drive.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-monitor-data',
@@ -14,7 +15,7 @@ export class MonitorDataComponent implements OnInit {
   pageSize: number = 8;
   currentPage: number = 1;
 
-  constructor(private driveService: DriveService) { }
+  constructor(private router: Router, private driveService: DriveService) { }
 
   ngOnInit(): void {
     this.getDriveData();
@@ -51,5 +52,9 @@ export class MonitorDataComponent implements OnInit {
     const start = (this.currentPage - 1) * this.pageSize;
     const end = start + this.pageSize;
     return this.data[i].items.slice(start, end);
+  }
+
+  onClick() {
+    this.router.navigate(['/single-day-monitor-data']);
   }
 }

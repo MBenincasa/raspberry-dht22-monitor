@@ -9,12 +9,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataChartComponent } from './pages/data-chart/data-chart.component';
+import { SingleDayMonitorDataComponent } from './pages/single-day-monitor-data/single-day-monitor-data.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MonitorDataComponent,
-    DataChartComponent
+    DataChartComponent,
+    SingleDayMonitorDataComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { DataChartComponent } from './pages/data-chart/data-chart.component';
     AppRoutingModule,
     NgbAccordionModule,
     NgbPaginationModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
 
@@ -10,7 +10,11 @@ export class DriveService {
 
   constructor(private http: HttpClient) { }
 
-  getAllData(): Observable<any> {
+  getAllData(date?: string): Observable<any> {
+    if (date) {
+      const params = new HttpParams().set('date', date);
+      return this.http.get(`${environment.url}`, {params})
+    }
     return this.http.get(`${environment.url}`)
   }
 }
