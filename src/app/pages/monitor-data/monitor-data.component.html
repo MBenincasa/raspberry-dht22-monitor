@@ -1,10 +1,10 @@
-<div class="container-sm">
+<div class="container-lg">
   <div class="row text-center py-2">
     <h1 class="display-1">Raspberry DHT22 Monitor</h1>
     <h3 class="display-3">All dates</h3>
   </div>
   <div class="d-grid gap-2 pb-3">
-    <button type="button" class="btn btn-primary btn-block" (click)="onClick()">Single date</button>
+    <button type="button" class="btn btn-primary btn-block" (click)="onClick()">Go to single date</button>
   </div>
   <div *ngIf="data.length > 0">
     <div class="row">
@@ -12,29 +12,9 @@
         <ngb-accordion [closeOthers]="true" [activeIds]="activePanel">
           <ngb-panel *ngFor="let group of data; let i = index" [id]="'panel-' + i" [title]="group.date">
             <ng-template ngbPanelContent>
-              <h4 class="display-4">Line chart</h4>
+              <app-data-info  [group]="group"></app-data-info>
               <app-data-chart [group]="group"></app-data-chart>
-              <h4 class="display-4">Table Data</h4>
-              <table class="table table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th>Time (UTC +01.00)</th>
-                    <th>Temperature (°C)</th>
-                    <th>Humidity (%)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of getPagedItems(i)">
-                    <td>{{ item?.time }}</td>
-                    <td>{{ item?.temperature | number:'2.1' }}</td>
-                    <td>{{ item?.humidity | number:'2.1' }}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <ngb-pagination class="d-flex justify-content-end" [collectionSize]="data[i]?.items.length"
-                [(page)]="currentPage" [pageSize]="pageSize" [maxSize]="3" [rotate]="true" [boundaryLinks]="true"
-                [ellipses]="false">
-              </ngb-pagination>
+              <app-table-data [items]="data[i].items"></app-table-data>
             </ng-template>
           </ngb-panel>
         </ngb-accordion>

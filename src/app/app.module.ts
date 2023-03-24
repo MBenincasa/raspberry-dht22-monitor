@@ -11,13 +11,17 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataChartComponent } from './pages/data-chart/data-chart.component';
 import { SingleDayMonitorDataComponent } from './pages/single-day-monitor-data/single-day-monitor-data.component';
 import { FormsModule } from '@angular/forms';
+import { TableDataComponent } from './pages/table-data/table-data.component';
+import { DataInfoComponent } from './pages/data-info/data-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MonitorDataComponent,
     DataChartComponent,
-    SingleDayMonitorDataComponent
+    SingleDayMonitorDataComponent,
+    TableDataComponent,
+    DataInfoComponent
   ],
   imports: [
     BrowserModule,
