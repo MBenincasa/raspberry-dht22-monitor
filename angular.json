@@ -29,7 +29,15 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ]
+            ],
+            "allowedCommonJsDependencies": [
+              "typed-function",
+              "seedrandom",
+              "javascript-natural-sort",
+              "complex.js",
+              "fraction.js",
+              "escape-latex"
+           ]
           },
           "configurations": {
             "production": {
