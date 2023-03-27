@@ -2,48 +2,52 @@
     <div class="row">
         <h3 class="display-3"><strong>Data Info</strong></h3>
     </div>
-    <div class="row">
-        <p class="h3"><strong>Temperature</strong></p>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <p class="lead"><strong class="bold">Start: </strong>{{tempStart | number:'2.1'}}°C</p>
-        </div>
-        <div class="col-sm-4">
-            <p class="lead"><strong class="bold">End: </strong>{{tempEnd | number:'2.1'}}°C</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <p class="lead"><strong class="bold">Min: </strong>{{tempMin}}°C</p>
-        </div>
-        <div class="col-sm-4">
-            <p class="lead"><strong class="bold">Avg: </strong>{{tempAvg}}°C</p>
-        </div>
-        <div class="col-sm-4">
-            <p class="lead"><strong class="bold">Max: </strong>{{tempMax}}°C</p>
-        </div>
-    </div>
-    <div class="row">
-        <p class="h3"><strong>Humidity</strong></p>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <p class="lead"><strong class="bold">Start: </strong>{{humStart | number:'2.1'}}%</p>
-        </div>
-        <div class="col-sm-4">
-            <p class="lead"><strong class="bold">End: </strong>{{humEnd | number:'2.1'}}%</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <p class="lead"><strong class="bold">Min: </strong>{{humMin}}%</p>
-        </div>
-        <div class="col-sm-4">
-            <p class="lead"><strong class="bold">Avg: </strong>{{humAvg}}%</p>
-        </div>
-        <div class="col-sm-4">
-            <p class="lead"><strong class="bold">Max: </strong>{{humMax}}%</p>
-        </div>
-    </div>
+    <ngb-accordion #acc="ngbAccordion">
+        <ngb-panel id="toggle-1" title="Temperature">
+            <ng-template ngbPanelContent>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="lead"><strong class="bold">Start: </strong>{{tempStart | number:'2.1'}}°C</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="lead"><strong class="bold">End: </strong>{{tempEnd | number:'2.1'}}°C</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="lead"><strong class="bold">Min: </strong>{{tempMin}}°C</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="lead"><strong class="bold">Avg: </strong>{{tempAvg}}°C</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="lead"><strong class="bold">Max: </strong>{{tempMax}}°C</p>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel id="toggle-2" title="Humidity">
+            <ng-template ngbPanelContent>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="lead"><strong class="bold">Start: </strong>{{humStart | number:'2.1'}}%</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="lead"><strong class="bold">End: </strong>{{humEnd | number:'2.1'}}%</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="lead"><strong class="bold">Min: </strong>{{humMin}}%</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="lead"><strong class="bold">Avg: </strong>{{humAvg}}%</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="lead"><strong class="bold">Max: </strong>{{humMax}}%</p>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
 </div>
